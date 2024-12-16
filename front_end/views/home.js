@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Button, FlatList, StyleSheet } from 'react-native';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/clientes'; 
+const API_URL = 'http://10.0.0.17:5000/clientes'; 
 
 export default function HomeScreen({ navigation }) {
   const [clientes, setClientes] = useState([]);
