@@ -1,20 +1,25 @@
 const { MongoClient, ObjectId } = require("mongodb");
  
 let singleton;
+
+require("dotenv").config();
+const MONGO_URI = process.env.MONGO_URI;
+const MONGO_HOST = process.env.MONGO_HOST;
+const MONGO_DATABASE = process.env.MONGO_DATABASE;
+
+console.log("variaveis no db.js: " + MONGO_HOST + " " + MONGO_DATABASE);
  
 async function connect() {
     if (singleton) return singleton;
  
-    const client = new MongoClient(process.env.MONGO_HOST);
-    //const client = new MongoClient(process.env.MONGO_HOST);
+        const client = new MongoClient("mongodb+srv://teste:teste@cluster0.sub8t.mongodb.net/");
+    
     await client.connect();
  
-    singleton = client.db(process.env.MONGO_DATABASE);
+    singleton = client.db("Appturismo");
     //singleton = client.db(process.env.MONGO_DATABASE);
     return singleton;
 }
-
-//const COLLECTION = "funcionarios";
  
 async function findAll(COLLECTION) {
     const db = await connect();

@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://teste:teste@cluster0.sub8t.mongodb.net/', { useNewUrlParser: true});
+//require("dotenv").config();
+//const MONGO_URI = process.env.MONGO_URI;
+
+mongoose.connect("mongodb+srv://teste:teste@cluster0.sub8t.mongodb.net/Appturismo", { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Conectado ao MongoDB com sucesso!'))
+  .catch((error) => console.error('Erro ao conectar ao MongoDB:', error));
 
 var Schema = mongoose.Schema;
 
